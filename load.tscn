@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq3dwn3hok4x2"]
+
+[ext_resource type="Texture2D" uid="uid://cjasspa23utk1" path="res://icon.svg" id="1_8y7vn"]
+
+[sub_resource type="Animation" id="Animation_ud2eh"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(516, 215), Vector2(516, 127)]
+}
+
+[sub_resource type="Animation" id="Animation_mpbm1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(516, 215)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ede6t"]
+_data = {
+"RESET": SubResource("Animation_mpbm1"),
+"idle": SubResource("Animation_ud2eh")
+}
+
+[node name="Load" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_ede6t")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 516.0
+offset_top = 215.0
+offset_right = 644.0
+offset_bottom = 343.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8y7vn")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -225.0
+offset_top = -126.0
+offset_right = 224.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
